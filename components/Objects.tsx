@@ -1,7 +1,7 @@
 import { Model3d } from "./Model3d";
 import { Select } from "@react-three/drei";
 
-const testObjects = ["floor.glb", "streetlight.glb"];
+const testObjects = ["streetlight.glb"];
 
 export const Objects = () => {
 	return (

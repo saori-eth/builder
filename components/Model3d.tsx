@@ -39,6 +39,8 @@ export const Model3d = <T,>(props: Model3dProps & T) => {
 				visible={isSelected}
 				onDragStart={() => setControlMode("pivot")}
 				onDragEnd={() => setControlMode("orbit")}
+				offset={[0.1, 0, 0]}
+				disableSliders
 			>
 				<primitive ref={modelRef} object={gltf.scene} {...props} />
 			</PivotControls>
