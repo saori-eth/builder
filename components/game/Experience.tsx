@@ -3,9 +3,14 @@ import { World } from "./World";
 import { useStore } from "@/hooks/useStore";
 
 const Experience = () => {
-	const { setEditorTarget } = useStore((state) => state.actions);
+	const { setEditorTarget, setMode } = useStore((state) => state.actions);
 	return (
-		<Canvas onPointerMissed={() => setEditorTarget(null)}>
+		<Canvas
+			onPointerMissed={() => setEditorTarget(null)}
+			onKeyDown={(e) => {
+				console.log(e);
+			}}
+		>
 			<World />
 		</Canvas>
 	);

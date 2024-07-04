@@ -1,19 +1,23 @@
 import { OrbitControls, TransformControls } from "@react-three/drei";
 import { useStore } from "@/hooks/useStore";
+import { Mode } from "@/types";
 
 /*
 	TODO:
 	https://threejs.org/docs/#examples/en/controls/TransformControls
-	Add better snap controls and make it so it doesn't scale to be huge when you zoom out
+	Add better snap controls
 */
+
 export const Controls = () => {
-	const { editorTarget } = useStore((state) => state);
+	const { editorTarget, mode } = useStore();
 
 	return (
 		<>
 			<OrbitControls makeDefault />
-			{/* @ts-expect-error: confusing object prop type */}
-			{editorTarget && <TransformControls object={editorTarget} />}
+			{editorTarget && mode === Mode.Editing && (
+				// @ts-expect-error: weird object prop type
+				<TransformControls object={editorTarget} />
+			)}
 		</>
 	);
 };

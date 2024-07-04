@@ -6,7 +6,7 @@ const testObjects = ["streetlight.glb"];
 export const Objects = () => {
 	return (
 		<Select>
-			{testObjects.map((object, index) => (
+			{testObjects.map((object) => (
 				<Model3d key={object} src={`/testObjects/${object}`} />
 			))}
 		</Select>
