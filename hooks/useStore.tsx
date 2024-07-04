@@ -1,18 +1,20 @@
 import { create } from "zustand";
-
-type controlModeOptions = "orbit" | "pivot";
+import type { Object3D } from "three";
+import type { MutableRefObject } from "react";
 
 export type Store = {
-	controlMode: controlModeOptions;
+	editorTarget: Object3D | MutableRefObject<Object3D> | null;
 
 	actions: {
-		setControlMode: (controlMode: controlModeOptions) => void;
+		setEditorTarget: (
+			editorTarget: Object3D | MutableRefObject<Object3D> | null,
+		) => void;
 	};
 };
 
 export const useStore = create<Store>((set) => ({
-	controlMode: "orbit",
+	editorTarget: null,
 	actions: {
-		setControlMode: (controlMode) => set({ controlMode }),
+		setEditorTarget: (editorTarget) => set({ editorTarget }),
 	},
 }));
