@@ -15,7 +15,6 @@ export const Controls = () => {
 		<>
 			<OrbitControls makeDefault />
 			{editorTarget && mode === Mode.Editing && (
-				// @ts-expect-error: weird object prop type
 				<TransformControls object={editorTarget} />
 			)}
 		</>
